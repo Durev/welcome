@@ -68,6 +68,7 @@ PLATFORMS
   x86_64-darwin-20
 
 DEPENDENCIES
+  activerecord (~> 6.1.6)
   rake (~> 13.0.6)
   sqlite3 (~> 1.4.2)
   standalone_migrations (~> 6.1.0)

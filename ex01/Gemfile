@@ -2,6 +2,7 @@
 
 source "https://rubygems.org"
 
+gem "activerecord", "~> 6.1.6"
 gem "rake", "~> 13.0.6"
 gem "sqlite3", "~> 1.4.2"
 gem "standalone_migrations", "~> 6.1.0"

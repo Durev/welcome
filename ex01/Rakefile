@@ -1,5 +1,39 @@
 # frozen_string_literal: true
 
 require "standalone_migrations"
+require "csv"
+
+require "./app/application"
 
 StandaloneMigrations::Tasks.load_tasks
+
+namespace :data do
+  desc "Load professions"
+  task :load_professions do |_|
+    professions = []
+
+    CSV.foreach("db/data/technical-test-professions.csv", headers: true) do |row|
+      professions << row.to_h.slice("id", "category_name")
+    end
+
+    Profession.upsert_all(professions)
+  end
+
+  desc "Load job offers"
+  task :load_job_offers, [:batch_size] do |_, args|
+    args.with_defaults(batch_size: 1000)
+
+    job_offers = []
+
+    CSV.foreach("db/data/technical-test-jobs.csv", headers: true) do |row|
+      job_offers << row.to_h.slice("profession_id", "office_latitude", "office_longitude")
+
+      if job_offers.size >= args.batch_size
+        JobOffer.upsert_all(job_offers)
+        job_offers = []
+      end
+    end
+
+    JobOffer.upsert_all(job_offers)
+  end
+end
