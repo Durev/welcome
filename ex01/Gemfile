@@ -1,0 +1,7 @@
+# frozen_string_literal: true
+
+source "https://rubygems.org"
+
+gem "rake", "~> 13.0.6"
+gem "sqlite3", "~> 1.4.2"
+gem "standalone_migrations", "~> 6.1.0"
