@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_26_134209) do
+ActiveRecord::Schema.define(version: 2022_05_27_175630) do
 
   create_table "job_offers", force: :cascade do |t|
     t.integer "profession_id"
     t.decimal "office_latitude", precision: 8, scale: 6
     t.decimal "office_longitude", precision: 9, scale: 6
     t.string "continent"
+    t.string "country_code"
     t.index ["profession_id"], name: "index_job_offers_on_profession_id"
   end
 

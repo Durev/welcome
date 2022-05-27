@@ -1,0 +1,777 @@
+af:
+  continent_code: as
+  continent_name: Asia
+al:
+  continent_code: eu
+  continent_name: Europe
+aq:
+  continent_code: an
+  continent_name: Antartica
+dz:
+  continent_code: af
+  continent_name: Africa
+as:
+  continent_code: oc
+  continent_name: Oceania
+ad:
+  continent_code: eu
+  continent_name: Europe
+ao:
+  continent_code: af
+  continent_name: Africa
+ag:
+  continent_code: na
+  continent_name: North America
+az:
+  continent_code: as
+  continent_name: Asia
+az:
+  continent_code: eu
+  continent_name: Europe
+ar:
+  continent_code: sa
+  continent_name: South America
+au:
+  continent_code: oc
+  continent_name: Oceania
+at:
+  continent_code: eu
+  continent_name: Europe
+bs:
+  continent_code: na
+  continent_name: North America
+bh:
+  continent_code: as
+  continent_name: Asia
+bd:
+  continent_code: as
+  continent_name: Asia
+am:
+  continent_code: as
+  continent_name: Asia
+am:
+  continent_code: eu
+  continent_name: Europe
+bb:
+  continent_code: na
+  continent_name: North America
+be:
+  continent_code: eu
+  continent_name: Europe
+bm:
+  continent_code: na
+  continent_name: North America
+bt:
+  continent_code: as
+  continent_name: Asia
+bo:
+  continent_code: sa
+  continent_name: South America
+ba:
+  continent_code: eu
+  continent_name: Europe
+bw:
+  continent_code: af
+  continent_name: Africa
+bv:
+  continent_code: an
+  continent_name: Antartica
+br:
+  continent_code: sa
+  continent_name: South America
+bz:
+  continent_code: na
+  continent_name: North America
+io:
+  continent_code: af
+  continent_name: Africa
+sb:
+  continent_code: oc
+  continent_name: Oceania
+vg:
+  continent_code: na
+  continent_name: North America
+bn:
+  continent_code: as
+  continent_name: Asia
+bg:
+  continent_code: eu
+  continent_name: Europe
+mm:
+  continent_code: as
+  continent_name: Asia
+bi:
+  continent_code: af
+  continent_name: Africa
+by:
+  continent_code: eu
+  continent_name: Europe
+kh:
+  continent_code: as
+  continent_name: Asia
+cm:
+  continent_code: af
+  continent_name: Africa
+ca:
+  continent_code: na
+  continent_name: North America
+cv:
+  continent_code: af
+  continent_name: Africa
+ky:
+  continent_code: na
+  continent_name: North America
+cf:
+  continent_code: af
+  continent_name: Africa
+lk:
+  continent_code: as
+  continent_name: Asia
+td:
+  continent_code: af
+  continent_name: Africa
+cl:
+  continent_code: sa
+  continent_name: South America
+cn:
+  continent_code: as
+  continent_name: Asia
+tw:
+  continent_code: as
+  continent_name: Asia
+cx:
+  continent_code: as
+  continent_name: Asia
+cc:
+  continent_code: as
+  continent_name: Asia
+co:
+  continent_code: sa
+  continent_name: South America
+km:
+  continent_code: af
+  continent_name: Africa
+yt:
+  continent_code: af
+  continent_name: Africa
+cg:
+  continent_code: af
+  continent_name: Africa
+cd:
+  continent_code: af
+  continent_name: Africa
+ck:
+  continent_code: oc
+  continent_name: Oceania
+cr:
+  continent_code: na
+  continent_name: North America
+hr:
+  continent_code: eu
+  continent_name: Europe
+cu:
+  continent_code: na
+  continent_name: North America
+cy:
+  continent_code: as
+  continent_name: Asia
+cy:
+  continent_code: eu
+  continent_name: Europe
+cz:
+  continent_code: eu
+  continent_name: Europe
+bj:
+  continent_code: af
+  continent_name: Africa
+dk:
+  continent_code: eu
+  continent_name: Europe
+dm:
+  continent_code: na
+  continent_name: North America
+do:
+  continent_code: na
+  continent_name: North America
+ec:
+  continent_code: sa
+  continent_name: South America
+sv:
+  continent_code: na
+  continent_name: North America
+gq:
+  continent_code: af
+  continent_name: Africa
+et:
+  continent_code: af
+  continent_name: Africa
+er:
+  continent_code: af
+  continent_name: Africa
+ee:
+  continent_code: eu
+  continent_name: Europe
+fo:
+  continent_code: eu
+  continent_name: Europe
+fk:
+  continent_code: sa
+  continent_name: South America
+gs:
+  continent_code: an
+  continent_name: Antartica
+fj:
+  continent_code: oc
+  continent_name: Oceania
+fi:
+  continent_code: eu
+  continent_name: Europe
+ax:
+  continent_code: eu
+  continent_name: Europe
+fr:
+  continent_code: eu
+  continent_name: Europe
+gf:
+  continent_code: sa
+  continent_name: South America
+pf:
+  continent_code: oc
+  continent_name: Oceania
+tf:
+  continent_code: af
+  continent_name: Africa
+dj:
+  continent_code: af
+  continent_name: Africa
+ga:
+  continent_code: af
+  continent_name: Africa
+ge:
+  continent_code: as
+  continent_name: Asia
+ge:
+  continent_code: eu
+  continent_name: Europe
+gm:
+  continent_code: af
+  continent_name: Africa
+de:
+  continent_code: eu
+  continent_name: Europe
+gh:
+  continent_code: af
+  continent_name: Africa
+gi:
+  continent_code: eu
+  continent_name: Europe
+ki:
+  continent_code: oc
+  continent_name: Oceania
+gr:
+  continent_code: eu
+  continent_name: Europe
+gl:
+  continent_code: na
+  continent_name: North America
+gd:
+  continent_code: na
+  continent_name: North America
+gp:
+  continent_code: na
+  continent_name: North America
+gu:
+  continent_code: oc
+  continent_name: Oceania
+gt:
+  continent_code: na
+  continent_name: North America
+gn:
+  continent_code: af
+  continent_name: Africa
+gy:
+  continent_code: sa
+  continent_name: South America
+ht:
+  continent_code: na
+  continent_name: North America
+hm:
+  continent_code: an
+  continent_name: Antartica
+va:
+  continent_code: eu
+  continent_name: Europe
+hn:
+  continent_code: na
+  continent_name: North America
+hk:
+  continent_code: as
+  continent_name: Asia
+hu:
+  continent_code: eu
+  continent_name: Europe
+is:
+  continent_code: eu
+  continent_name: Europe
+in:
+  continent_code: as
+  continent_name: Asia
+id:
+  continent_code: as
+  continent_name: Asia
+ir:
+  continent_code: as
+  continent_name: Asia
+iq:
+  continent_code: as
+  continent_name: Asia
+ie:
+  continent_code: eu
+  continent_name: Europe
+il:
+  continent_code: as
+  continent_name: Asia
+it:
+  continent_code: eu
+  continent_name: Europe
+ci:
+  continent_code: af
+  continent_name: Africa
+jm:
+  continent_code: na
+  continent_name: North America
+jp:
+  continent_code: as
+  continent_name: Asia
+kz:
+  continent_code: as
+  continent_name: Asia
+kz:
+  continent_code: eu
+  continent_name: Europe
+jo:
+  continent_code: as
+  continent_name: Asia
+ke:
+  continent_code: af
+  continent_name: Africa
+kp:
+  continent_code: as
+  continent_name: Asia
+kr:
+  continent_code: as
+  continent_name: Asia
+xk:
+  continent_code: eu
+  continent_name: Europe
+kw:
+  continent_code: as
+  continent_name: Asia
+kg:
+  continent_code: as
+  continent_name: Asia
+la:
+  continent_code: as
+  continent_name: Asia
+lb:
+  continent_code: as
+  continent_name: Asia
+ls:
+  continent_code: af
+  continent_name: Africa
+lv:
+  continent_code: eu
+  continent_name: Europe
+lr:
+  continent_code: af
+  continent_name: Africa
+ly:
+  continent_code: af
+  continent_name: Africa
+li:
+  continent_code: eu
+  continent_name: Europe
+lt:
+  continent_code: eu
+  continent_name: Europe
+lu:
+  continent_code: eu
+  continent_name: Europe
+mo:
+  continent_code: as
+  continent_name: Asia
+mg:
+  continent_code: af
+  continent_name: Africa
+mw:
+  continent_code: af
+  continent_name: Africa
+my:
+  continent_code: as
+  continent_name: Asia
+mv:
+  continent_code: as
+  continent_name: Asia
+ml:
+  continent_code: af
+  continent_name: Africa
+mt:
+  continent_code: eu
+  continent_name: Europe
+mq:
+  continent_code: na
+  continent_name: North America
+mr:
+  continent_code: af
+  continent_name: Africa
+mu:
+  continent_code: af
+  continent_name: Africa
+mx:
+  continent_code: na
+  continent_name: North America
+mc:
+  continent_code: eu
+  continent_name: Europe
+mn:
+  continent_code: as
+  continent_name: Asia
+md:
+  continent_code: eu
+  continent_name: Europe
+me:
+  continent_code: eu
+  continent_name: Europe
+ms:
+  continent_code: na
+  continent_name: North America
+ma:
+  continent_code: af
+  continent_name: Africa
+mz:
+  continent_code: af
+  continent_name: Africa
+om:
+  continent_code: as
+  continent_name: Asia
+na:
+  continent_code: af
+  continent_name: Africa
+nr:
+  continent_code: oc
+  continent_name: Oceania
+np:
+  continent_code: as
+  continent_name: Asia
+nl:
+  continent_code: eu
+  continent_name: Europe
+cw:
+  continent_code: na
+  continent_name: North America
+aw:
+  continent_code: na
+  continent_name: North America
+sx:
+  continent_code: na
+  continent_name: North America
+bq:
+  continent_code: na
+  continent_name: North America
+nc:
+  continent_code: oc
+  continent_name: Oceania
+vu:
+  continent_code: oc
+  continent_name: Oceania
+nz:
+  continent_code: oc
+  continent_name: Oceania
+ni:
+  continent_code: na
+  continent_name: North America
+ne:
+  continent_code: af
+  continent_name: Africa
+ng:
+  continent_code: af
+  continent_name: Africa
+nu:
+  continent_code: oc
+  continent_name: Oceania
+nf:
+  continent_code: oc
+  continent_name: Oceania
+no:
+  continent_code: eu
+  continent_name: Europe
+mp:
+  continent_code: oc
+  continent_name: Oceania
+um:
+  continent_code: na
+  continent_name: North America
+um:
+  continent_code: oc
+  continent_name: Oceania
+fm:
+  continent_code: oc
+  continent_name: Oceania
+mh:
+  continent_code: oc
+  continent_name: Oceania
+pw:
+  continent_code: oc
+  continent_name: Oceania
+pk:
+  continent_code: as
+  continent_name: Asia
+ps:
+  continent_code: as
+  continent_name: Asia
+pa:
+  continent_code: na
+  continent_name: North America
+pg:
+  continent_code: oc
+  continent_name: Oceania
+py:
+  continent_code: sa
+  continent_name: South America
+pe:
+  continent_code: sa
+  continent_name: South America
+ph:
+  continent_code: as
+  continent_name: Asia
+pn:
+  continent_code: oc
+  continent_name: Oceania
+pl:
+  continent_code: eu
+  continent_name: Europe
+pt:
+  continent_code: eu
+  continent_name: Europe
+gw:
+  continent_code: af
+  continent_name: Africa
+tl:
+  continent_code: as
+  continent_name: Asia
+pr:
+  continent_code: na
+  continent_name: North America
+qa:
+  continent_code: as
+  continent_name: Asia
+re:
+  continent_code: af
+  continent_name: Africa
+ro:
+  continent_code: eu
+  continent_name: Europe
+ru:
+  continent_code: as
+  continent_name: Asia
+ru:
+  continent_code: eu
+  continent_name: Europe
+rw:
+  continent_code: af
+  continent_name: Africa
+bl:
+  continent_code: na
+  continent_name: North America
+sh:
+  continent_code: af
+  continent_name: Africa
+kn:
+  continent_code: na
+  continent_name: North America
+ai:
+  continent_code: na
+  continent_name: North America
+lc:
+  continent_code: na
+  continent_name: North America
+mf:
+  continent_code: na
+  continent_name: North America
+pm:
+  continent_code: na
+  continent_name: North America
+vc:
+  continent_code: na
+  continent_name: North America
+sm:
+  continent_code: eu
+  continent_name: Europe
+st:
+  continent_code: af
+  continent_name: Africa
+sa:
+  continent_code: as
+  continent_name: Asia
+sn:
+  continent_code: af
+  continent_name: Africa
+rs:
+  continent_code: eu
+  continent_name: Europe
+sc:
+  continent_code: af
+  continent_name: Africa
+sl:
+  continent_code: af
+  continent_name: Africa
+sg:
+  continent_code: as
+  continent_name: Asia
+sk:
+  continent_code: eu
+  continent_name: Europe
+vn:
+  continent_code: as
+  continent_name: Asia
+si:
+  continent_code: eu
+  continent_name: Europe
+so:
+  continent_code: af
+  continent_name: Africa
+za:
+  continent_code: af
+  continent_name: Africa
+zw:
+  continent_code: af
+  continent_name: Africa
+es:
+  continent_code: eu
+  continent_name: Europe
+ss:
+  continent_code: af
+  continent_name: Africa
+sd:
+  continent_code: af
+  continent_name: Africa
+eh:
+  continent_code: af
+  continent_name: Africa
+sr:
+  continent_code: sa
+  continent_name: South America
+sj:
+  continent_code: eu
+  continent_name: Europe
+sz:
+  continent_code: af
+  continent_name: Africa
+se:
+  continent_code: eu
+  continent_name: Europe
+ch:
+  continent_code: eu
+  continent_name: Europe
+sy:
+  continent_code: as
+  continent_name: Asia
+tj:
+  continent_code: as
+  continent_name: Asia
+th:
+  continent_code: as
+  continent_name: Asia
+tg:
+  continent_code: af
+  continent_name: Africa
+tk:
+  continent_code: oc
+  continent_name: Oceania
+to:
+  continent_code: oc
+  continent_name: Oceania
+tt:
+  continent_code: na
+  continent_name: North America
+ae:
+  continent_code: as
+  continent_name: Asia
+tn:
+  continent_code: af
+  continent_name: Africa
+tr:
+  continent_code: as
+  continent_name: Asia
+tr:
+  continent_code: eu
+  continent_name: Europe
+tm:
+  continent_code: as
+  continent_name: Asia
+tc:
+  continent_code: na
+  continent_name: North America
+tv:
+  continent_code: oc
+  continent_name: Oceania
+ug:
+  continent_code: af
+  continent_name: Africa
+ua:
+  continent_code: eu
+  continent_name: Europe
+mk:
+  continent_code: eu
+  continent_name: Europe
+eg:
+  continent_code: af
+  continent_name: Africa
+eg:
+  continent_code: as
+  continent_name: Asia
+gb:
+  continent_code: eu
+  continent_name: Europe
+gg:
+  continent_code: eu
+  continent_name: Europe
+je:
+  continent_code: eu
+  continent_name: Europe
+im:
+  continent_code: eu
+  continent_name: Europe
+tz:
+  continent_code: af
+  continent_name: Africa
+us:
+  continent_code: na
+  continent_name: North America
+vi:
+  continent_code: na
+  continent_name: North America
+bf:
+  continent_code: af
+  continent_name: Africa
+uy:
+  continent_code: sa
+  continent_name: South America
+uz:
+  continent_code: as
+  continent_name: Asia
+ve:
+  continent_code: sa
+  continent_name: South America
+wf:
+  continent_code: oc
+  continent_name: Oceania
+ws:
+  continent_code: oc
+  continent_name: Oceania
+ye:
+  continent_code: as
+  continent_name: Asia
+zm:
+  continent_code: af
+  continent_name: Africa
