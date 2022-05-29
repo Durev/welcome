@@ -2,38 +2,41 @@
 
 require "#{__dir__}/../application"
 
+# The responsibility of this service object is to fetch the count of offers per category and per continent
+# and to serialize the result in a format than can be fed to the terminal-table interface
 class JobsCountService
 
-  CONTINENTS = [nil, "Africa", "Asia", "Europe", "North America", "Oceania", "South America"].freeze
+  def self.call
+    new.send(:call)
+  end
 
-  CATEGORIES = ["Admin", "Business", "Conseil", "Créa", "Marketing / Comm'", "Retail", "Tech"].freeze
+  private
 
   def call
-    rows = JobOffer
+    JobOffer::CONTINENTS.each_with_object([]) do |continent, arr|
+      row = [continent]
+
+      Profession::CATEGORIES.each do |category|
+        row << count_per_continent_per_category[continent][category]
+      end
+
+      arr << row
+    end
+  end
+
+  def query_result
+    @_query_result ||= JobOffer
       .joins(:profession)
       .group(:continent, :category_name)
       .count
+  end
 
-    hash = {}
-
-    rows.each do |k, v|
-      hash[k.first] ||= Hash.new(0)
-      hash[k.first][k.last] = v
-    end
-
-    final_rows = []
-
-    CONTINENTS.each do |continent|
-      row = [continent]
-
-      CATEGORIES.each do |category|
-        row << hash[continent][category]
+  def count_per_continent_per_category
+    @_count_per_continent_per_category ||=
+      query_result.each_with_object({}) do |(k, v), hash|
+        hash[k.first] ||= Hash.new(0)
+        hash[k.first][k.last] = v
       end
-
-      final_rows << row
-    end
-
-    final_rows
   end
 
 end

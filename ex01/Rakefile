@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "./app/application"
+require "#{__dir__}/app/application"
 
 StandaloneMigrations::Tasks.load_tasks
 
@@ -37,11 +37,13 @@ end
 
 namespace :results do
   task :print do
-    final_rows = JobsCountService.new.call
+    table_rows = JobsCountService.call
+    headings = [""] + Profession::CATEGORIES
 
-    headings = [""] + JobsCountService::CATEGORIES
-
-    table = Terminal::Table.new(rows: final_rows, headings: headings)
+    table = Terminal::Table.new(
+      rows: table_rows,
+      headings: headings
+    )
 
     puts table
   end
