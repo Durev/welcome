@@ -34,3 +34,15 @@ namespace :data do
     JobOffer.upsert_all(job_offers)
   end
 end
+
+namespace :results do
+  task :print do
+    final_rows = JobsCountService.new.call
+
+    headings = [""] + JobsCountService::CATEGORIES
+
+    table = Terminal::Table.new(rows: final_rows, headings: headings)
+
+    puts table
+  end
+end

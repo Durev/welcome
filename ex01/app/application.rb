@@ -4,9 +4,10 @@ require "active_record"
 require "csv"
 require "geocoder"
 require "standalone_migrations"
+require "terminal-table"
 require "yaml"
 
-Dir["#{__dir__}/models/*.rb"].each { |path| require path }
+Dir["#{__dir__}/**/*.rb"].each { |path| require path }
 
 DB_CONFIG = YAML.load_file("#{__dir__}/../db/config.yml").freeze
 

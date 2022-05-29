@@ -16,6 +16,8 @@ class JobOffer < ActiveRecord::Base
   # `geocoded` and `not_geocded` scopes are provided by geocoder
   scope :not_reverse_geocoded, -> { geocoded.where(country_code: nil) }
 
+  belongs_to :profession, optional: true
+
   after_validation :reverse_geocode
 
 end
