@@ -1,14 +1,18 @@
 # frozen_string_literal: true
 
 require "active_record"
+require "csv"
 require "geocoder"
+require "standalone_migrations"
 require "yaml"
 
 Dir["#{__dir__}/models/*.rb"].each { |path| require path }
 
+DB_CONFIG = YAML.load_file("#{__dir__}/../db/config.yml").freeze
+
 ActiveRecord::Base.establish_connection(
-  adapter: "sqlite3",
-  database: "db/development.sqlite3"
+  adapter: DB_CONFIG["development"]["adapter"],
+  database: DB_CONFIG["development"]["database"]
 )
 
 Geocoder.configure(
@@ -16,5 +20,4 @@ Geocoder.configure(
   timeout: 5
 )
 
-# load countries/continents matchup in constant
 COUNTRIES = YAML.load_file("#{__dir__}/../config/countries.yml").freeze

@@ -7,10 +7,9 @@ class JobOffer < ActiveRecord::Base
   extend Geocoder::Model::ActiveRecord
 
   reverse_geocoded_by :office_latitude, :office_longitude do |obj, results|
-
     if geo = results.first
       obj.country_code = geo.country_code
-      obj.continent = ::COUNTRIES[obj.country_code]["continent_name"]
+      obj.continent = ::COUNTRIES.dig(obj.country_code, "continent_name")
     end
   end
 

@@ -1,15 +1,12 @@
 # frozen_string_literal: true
 
-require "standalone_migrations"
-require "csv"
-
 require "./app/application"
 
 StandaloneMigrations::Tasks.load_tasks
 
 namespace :data do
-  desc "Load professions"
-  task :load_professions do |_|
+  desc "Load professions records in database"
+  task :load_professions do
     professions = []
 
     CSV.foreach("db/data/technical-test-professions.csv", headers: true) do |row|
@@ -19,7 +16,7 @@ namespace :data do
     Profession.upsert_all(professions)
   end
 
-  desc "Load job offers"
+  desc "Load job offers records in database"
   task :load_job_offers, [:batch_size] do |_, args|
     args.with_defaults(batch_size: 1000)
 
