@@ -2,8 +2,6 @@
 
 Here are some detailed explanations on the design and implementation choices behind the ex01 solution.
 
-
-
 ## General approach
 
 In a different context where the code could have benefitted from being reusable, I probably would have packaged this differently, for instance as a Rails engine with built-in views to visualize the results, or as a standard Ruby gem.
@@ -12,33 +10,23 @@ In the context of this exercice and to keep it as simple as possible, I chose to
 
 I also chose to lean on existing Ruby libraries for common problems that weren't specific to the business logic of this exercice.
 
-
-
 ## Data storage, import and processing
 
 Considering the structure and low volume of data, and the processing required to arrive to the desired output, I think that the simplest approach was to import the CSV input data into a relational database, enrich it with the desired information (continents) and compute the results.
 
 For the needs of this exercice, and for small and medium sized tables (< 1M - 10M rows) relational databases offer a good compromise between simplicity of use, performance and easy integration within a Ruby application.
 
-
-
 **RDBMS**
 
 In order to avoid any compatibility issues with a RDBMS, I decided to use SQLite as it is quite portable, lightweight and easy to setup. For a production grade application, I might have picked another system, for instance PostgreSQL or MySQL.
-
-
 
 **ORM**
 
 ActiveRecord provides all the functionalities we need here, including a simple Ruby DSL to import, update and query the relevant data. It was my go-to choice as it is quite popular in the Rails ecosystem and I'm very familiar with it.
 
-
-
 **Tasks automation**
 
 I chose Rake to provide an interface for ActiveRecord based tasks and custom tasks.
-
-
 
 **Data import step**
 
@@ -52,8 +40,6 @@ I chose Rake to provide an interface for ActiveRecord based tasks and custom tas
 - I arbitrarily decided to keep the data with NULL values for geolocation (`job_offers`) or category name (`professions`) during the import phase.
   It could have been equally efficient to ignore this data in the import step and use a NOT NULL constraint in database for better data consistency.
 
-
-
 ## (Reverse) Geocoding
 
 **Design**
@@ -63,8 +49,6 @@ Several approaches have been considered for this step (cf. 'Alternative design' 
 Overall I decided to use a call to a 3rd party Web API, to reverse all the geolocations provided, initially thinking that it would be a very straightforward way to obtain the continent.
 
 If I had to start all over again from scratch, this probably would not be my first choice anymore though.
-
-
 
 **Reverse geocoding service**
 
@@ -78,11 +62,7 @@ When looking for a geocododing service, I mainly considered these criteria:
 
 - If possible, ability to consume the API without signup and the need to setup an API key.
 
-
-
 When starting the integration, I thought most services would provide the continent in the result data, but it turns out that I couldn't find a service that provided the continent **and** matched all the above criteria.
-
-
 
 **Wrapper gem**
 
@@ -98,8 +78,6 @@ I quicky stumbled open the [geocoder](https://github.com/alexreisner/geocoder) g
 
 - Comes with convenient defaults settings for configuration.
 
-
-
 **Enriching job_offers table with continent**
 
 After beginning the implementation, I realized that most geocoding services do not provide a continent classification.
@@ -114,13 +92,9 @@ After a quick processing with my text editor, I added this in a config file (cf.
 
 In the context of this exercice I did not carry a thorough control of the data and assumed it was reliable. Some countries are classified in several continents at once (e.g. Azerbaijan can be classified as being both part of Asia and Europe), so when loading the list I arbitrarily keep the last occurrence.
 
-
-
 **Actual reverse geocoding**
 
 My initial goal was to be able fetch the records that weren't reverse geocoded, send the geolocation data by batches to an external service API, and update the records in database with the matching country data.
-
-
 
 The geocoder gem does feature [a built-in rake task](https://github.com/alexreisner/geocoder#batch-geocoding) for that purpose (`rake geocode:all CLASS=JobOffer REVERSE=true`) that will fetch only records that are not already reverse geocoded.
 
@@ -130,13 +104,11 @@ In reality, this results in a strenously slow process, lasting ~ 1,5 hours for 5
 
 With more time available, this is undeniably the problem I would have solved for this implementation.
 
-
-
 **Alternative design**
 
 For the reverse geocoding step, during my initial conception and during my implementation, I considered other approaches here:
 
-1. Using a db extension for geographic data support (e.g. Postgis or SpatiaLite) and import a set of data containing administrative areas (continents) to rely on for classification.
+1. Using a db extension for geographic data support (e.g. Postgis or SpatiaLite) and import a set of data containing administrative areas (continents) to rely on for classification and [reverse geocoding](https://postgis.net/docs/Reverse_Geocode.html).
    This would allow to go without any 3rd party API call (no extra cost, no performance issues related to external API calls).
    It would be simpler to implement if the database was already using such an embedded extension.
    In the context of this test though, I judged it might be very time consuming to setup and a source of dependencies issues for other users (aka install hell).
@@ -145,8 +117,6 @@ For the reverse geocoding step, during my initial conception and during my imple
 
 3. Use another API allowing Batch Reverse geocoding, but requiring signup and for which you may have to pay for in order to have a quick service for ~5K records.
 
-
-
 ## Results output
 
 This part is relatively simple once all the data is loaded and reverse geocoded as it comes down to just writing the right SQL query, which is quite straightforward and can be done in Ruby using ActiveRecord, and then format it in a readable structure.
@@ -154,8 +124,6 @@ This part is relatively simple once all the data is loaded and reverse geocoded 
 I chose to use the [terminal-table](https://github.com/tj/terminal-table) to easily print the results in an ASCII table.
 
 As for some other gems, it could be debated here is if it’s worth introducing an external dependency for this simple task, but I assumed it didn't brind a lot of value to reimplement this kind of "common" logic (aka reinventing the wheel).
-
-
 
 ## Caveats and potential for improvement
 
@@ -182,5 +150,3 @@ In order to easily format the results, the profession categories list is “hard
 ### Notes
 
 I’m usually not a big proponent for comments in Ruby code, but in the context of this technical test, it felt like the more natural way to provide some context and explanation for specific lines of code. Thus the few comments you might find in ex01 code.
-
-
