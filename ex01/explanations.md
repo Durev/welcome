@@ -18,13 +18,13 @@ I also chose to lean on existing Ruby libraries for common problems that weren't
 
 Considering the structure and low volume of data, and the processing required to arrive to the desired output, I think that the simplest approach was to import the CSV input data into a relational database, enrich it with the desired information (continents) and compute the results.
 
-For small and medium sized tables (< 1M - 10M rows) relational databases offer a good compromise between simplicity of use, performance and easy integration within a Ruby application.
+For the needs of this exercice, and for small and medium sized tables (< 1M - 10M rows) relational databases offer a good compromise between simplicity of use, performance and easy integration within a Ruby application.
 
 
 
 **RDBMS**
 
-In order to order any compatibility issues with a RDBMS, I decided to use SQLite as it is quite portable, lightweight and easy to setup. For a production grade application, I might have picked another system, for instance PostgreSQL or MySQL.
+In order to avoid any compatibility issues with a RDBMS, I decided to use SQLite as it is quite portable, lightweight and easy to setup. For a production grade application, I might have picked another system, for instance PostgreSQL or MySQL.
 
 
 
@@ -49,7 +49,7 @@ I chose Rake to provide an interface for ActiveRecord based tasks and custom tas
 
 - As SQLite does not support enum types, I decided to ignore any validation on the data for the `category_name` column. A CHECK CONSTRAINT might have done the job here.
 
-- I arbitrarily decided to keep the data with NULL values for geolocation (job_offers) or category name (professions) during the import phase. 
+- I arbitrarily decided to keep the data with NULL values for geolocation (`job_offers`) or category name (`professions`) during the import phase.
   It could have been equally efficient to ignore this data in the import step and use a NOT NULL constraint in database for better data consistency.
 
 
@@ -74,10 +74,9 @@ When looking for a geocododing service, I mainly considered these criteria:
 
 - Free tier
 
-- High limit for free tier or batch synchronous reverse geocoding
-  For instance, [geoapify.com](http://geoapify.com/) provides batch geocoding where the first call to the API creates a background job, and requires to handle the callback logic with the given job id. This could work but goes introduces unecessary complexity here.
+- High limit for free tier or batch synchronous reverse geocoding. For instance, [geoapify.com](http://geoapify.com/) provides batch geocoding where the first call to the API creates a background job, and requires to handle the callback logic with the given job id. This could work but introduces unecessary complexity here.
 
-- If possible, possibility to consume the API without signup and the need to setup an API key.
+- If possible, ability to consume the API without signup and the need to setup an API key.
 
 
 
@@ -89,7 +88,7 @@ When starting the integration, I thought most services would provide the contine
 
 I quicky stumbled open the [geocoder](https://github.com/alexreisner/geocoder) gem, that offers multiple advantages for geocoding and reverse geocoding tasks:
 
-- Integrates with multiple services, and provides a very convenient abstraction layer around all the HTTP client that would otherwise have to be configured according to API specifics for every service.
+- Integrates with multiple services, and provides a very convenient abstraction layer around all the HTTP client that would otherwise have to be configured according to API specificities for every service.
 
 - Among others, flawlessly integrates with the [Nominatim / OpenStreetMap API](https://nominatim.org/release-docs/develop/api/Overview/).
 
@@ -123,19 +122,19 @@ My initial goal was to be able fetch the records that weren't reverse geocoded, 
 
 
 
-The geocoder gem does feature a built-in rake task for that purpose (`rake geocode:all CLASS=JobOffer REVERSE=true`) that will fetch only records that are not already reverse geocoded.
+The geocoder gem does feature [a built-in rake task](https://github.com/alexreisner/geocoder#batch-geocoding) for that purpose (`rake geocode:all CLASS=JobOffer REVERSE=true`) that will fetch only records that are not already reverse geocoded.
 
 But if the interface might be assimilated to a batch action, the underlying logic actually consists of multiple single API calls to the service responsible for reverse geocoding.
 
 In reality, this results in a strenously slow process, lasting ~ 1,5 hours for 5K records.
 
-With more time available, this is undeniably the problem I would have solved for this solution.
+With more time available, this is undeniably the problem I would have solved for this implementation.
 
 
 
 **Alternative design**
 
-For this step, during with initial conception and my implementation, I considered other approaches here:
+For the reverse geocoding step, during my initial conception and during my implementation, I considered other approaches here:
 
 1. Using a db extension for geographic data support (e.g. Postgis or SpatiaLite) and import a set of data containing administrative areas (continents) to rely on for classification.
    This would allow to go without any 3rd party API call (no extra cost, no performance issues related to external API calls).
@@ -178,7 +177,7 @@ Though in a real application, I would not be comfortable deploying untested code
 
 ### Lack of adaptability
 
-In order to easily format the results, the profession categories list is “hardcoded” at one point. It is relatively open for extension, but if new category is introduced, the table with the results output won’t dynamically adapt if the category list hasn’t been updated. In a more "real world" situation, it could be worth implementing a more dynamic solution.
+In order to easily format the results, the profession categories list is “hardcoded” at one point. It is relatively open for extension, but if a new category is introduced in the dataset, and the category list hasn’t been updated, the table with the results output won’t dynamically adapt. In a more "real world" situation, it could be worth implementing a more dynamic solution.
 
 ### Notes
 
