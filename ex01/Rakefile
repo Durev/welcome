@@ -6,10 +6,12 @@ StandaloneMigrations::Tasks.load_tasks
 
 namespace :data do
   desc "Load professions records in database"
-  task :load_professions do
+  task :load_professions, [:filepath] do |_, args|
+    args.with_defaults(filepath: "db/data/technical-test-professions.csv")
+
     professions = []
 
-    CSV.foreach("db/data/technical-test-professions.csv", headers: true) do |row|
+    CSV.foreach(args.filepath, headers: true) do |row|
       professions << row.to_h.slice("id", "category_name")
     end
 
@@ -17,12 +19,12 @@ namespace :data do
   end
 
   desc "Load job offers records in database"
-  task :load_job_offers, [:batch_size] do |_, args|
-    args.with_defaults(batch_size: 1000)
+  task :load_job_offers, [:filepath, :batch_size] do |_, args|
+    args.with_defaults(filepath: "db/data/technical-test-jobs.csv", batch_size: 1000)
 
     job_offers = []
 
-    CSV.foreach("db/data/technical-test-jobs.csv", headers: true) do |row|
+    CSV.foreach(args.filepath, headers: true) do |row|
       job_offers << row.to_h.slice("profession_id", "office_latitude", "office_longitude")
 
       if job_offers.size >= args.batch_size

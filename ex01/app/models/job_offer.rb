@@ -7,7 +7,6 @@ class JobOffer < ActiveRecord::Base
   extend Geocoder::Model::ActiveRecord
 
   CONTINENTS = [
-    nil,
     "Africa",
     "Asia",
     "Europe",

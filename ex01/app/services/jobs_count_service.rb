@@ -27,6 +27,7 @@ class JobsCountService
   def query_result
     @_query_result ||= JobOffer
       .joins(:profession)
+      .where.not(continent: nil)
       .group(:continent, :category_name)
       .count
   end
