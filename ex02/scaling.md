@@ -12,6 +12,8 @@ Here is an example of real time data flow, as an alternative architecture idea t
 
 ### Main steps
 
+<img width="916" alt="Screenshot 2022-05-30 at 18 22 38" src="https://user-images.githubusercontent.com/28515750/171037281-1ab4feb1-4104-4ba5-b79d-26946e415827.png">
+
 *(in red on the schema)*
 
 1. A producer sends new job offers, as distinct messages in a Kafka topic (*topic1*).
@@ -37,6 +39,8 @@ Here is an example of real time data flow, as an alternative architecture idea t
 
 
 ### Optional steps
+
+<img width="899" alt="Screenshot 2022-05-30 at 18 45 45" src="https://user-images.githubusercontent.com/28515750/171037291-816c4db6-bee4-4076-806f-3004a67ee7d2.png">
 
 *(in green on the schema)*
 
