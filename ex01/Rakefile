@@ -37,6 +37,13 @@ namespace :data do
   end
 end
 
+namespace :geocoding do
+  task :print_stats do
+    puts "Reverse geocoded jobs_offers: #{JobOffer.reverse_geocoded.count}"
+    puts "Not reverse geocoded jobs_offers: #{JobOffer.not_reverse_geocoded.count}"
+  end
+end
+
 namespace :results do
   task :print do
     table_rows = JobsCountService.call
