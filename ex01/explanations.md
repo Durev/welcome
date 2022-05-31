@@ -104,6 +104,10 @@ In reality, this results in a strenously slow process, lasting ~ 1,5 hours for 5
 
 With more time available, this is undeniably the problem I would have solved for this implementation.
 
+Furthermore, I noticed after a while that the rake task stopped working in my environment and started raising an error. The bug might be related to this issue: [rake task not working · Issue #17 · alexreisner/geocoder · GitHub](https://github.com/alexreisner/geocoder/issues/17). After a quick investigation, I decided to reimplement a simple version of this task instead  `(geocoding:reverse_all`), that should be adapted if we had to use a service with real batch reverse geocoding.
+
+
+
 **Alternative design**
 
 For the reverse geocoding step, during my initial conception and during my implementation, I considered other approaches here:

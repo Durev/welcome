@@ -45,11 +45,7 @@ bundle exec rake db:create
 bundle exec rake db:migrate
 ```
 
-
-
 You're all set! 🚀
-
-
 
 ### Usage
 
@@ -66,8 +62,6 @@ bundle exec rake data:load_professions
 bundle exec rake data:load_job_offers
 ```
 
-
-
 **Alternative: custom files**
 
 You can also load different data than the one initially given with the exercice, by passing the filepath as an argument to the tasks:
@@ -79,19 +73,38 @@ bundle exec rake data:load_job_offers db/data/jobs.csv
 
 Just bare in mind that there is no specific error management or check on the input files here, so the task will crash loudly if the file format differs from the initial ones.
 
-
-
 Il you need to start from a fresh dataset, drop the existing database and recreate the schema from scratch:
 
 ```bash
 bundle exec rake db:drop && bundle exec rake db:create && bundle exec rake db:migrate
 ```
 
-
-
 #### Reverse geocoding
 
-`TODO: Improve step`
+To launch the rake task that will reverse geocode all the job offers (ie get the continent from the coordinates), use
+
+```bash
+bundle exec rake geocoding:reverse_all
+```
+
+You can see the progress of this task by printing the count of records already reverse geocoded, and the records that have yet to be reverse geocoded with:
+
+```bash
+bundle exec rake geocoding:print_stats
+```
+
+**Hack: Import dump**
+
+⚠️As discussed in [ex01/explanations.md](https://github.com/Durev/welcome/blob/main/ex01/explanations.md) part, the main issue with this approach is the slowness of this step, that might take more than 1,5 hour at this point.
+
+In the context of the correction of this exercide, in order to speed up this step, I provided a db dump, containing all the data already reverse geocoded. To replace the data with the one contained in the dump:
+
+```bash
+bundle exec rake db:drop && bundle exec rake db:create
+cat db/dump.sql | sqlite3 db/development.sqlite3
+```
+
+
 
 
 
@@ -117,8 +130,6 @@ bundle exec rake results:print
 ### Explanations
 
 Detailed explanations for the design choices of this application can be found there: [ex01/explanations.md](https://github.com/Durev/welcome/blob/main/ex01/explanations.md).
-
-
 
 ## Ex02
 

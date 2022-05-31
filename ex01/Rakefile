@@ -42,6 +42,15 @@ namespace :geocoding do
     puts "Reverse geocoded jobs_offers: #{JobOffer.reverse_geocoded.count}"
     puts "Not reverse geocoded jobs_offers: #{JobOffer.not_reverse_geocoded.count}"
   end
+
+  task :reverse_all do
+    JobOffer.not_reverse_geocoded.find_in_batches do |job_offers|
+      job_offers.each do |job_offer|
+        job_offer.reverse_geocode
+        job_offer.save!
+      end
+    end
+  end
 end
 
 namespace :results do
