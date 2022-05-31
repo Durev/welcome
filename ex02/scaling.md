@@ -4,7 +4,7 @@ With a much higher volume of incoming data, the solution implemented in ex01 wou
 
 - Querying a relational database with tables that contain 100M rows, even with the right indexes, might be relatively slow. Plus the query would have to be executed again for every new insert in the database, which would be suboptimal.
 
-- Relying on 3rd party service for synchronous reverse geocoding might introduce stability issues and jeopardize our application stability and response time.
+- Relying on 3rd party service for synchronous reverse geocoding might introduce stability issues and would mean relying on the service response time in our flow. This could jeopardize our application stability and response time.
 
 Here is an example of real time data flow, as an alternative architecture idea that might be adapted to such scaling issues.
 
@@ -14,7 +14,7 @@ Here is an example of real time data flow, as an alternative architecture idea t
 
 <img width="916" alt="Screenshot 2022-05-30 at 18 22 38" src="https://user-images.githubusercontent.com/28515750/171037281-1ab4feb1-4104-4ba5-b79d-26946e415827.png">
 
-*(in red on the schema)*
+
 
 1. A producer sends new job offers, as distinct messages in a Kafka topic (*topic1*).
 
@@ -24,7 +24,7 @@ Here is an example of real time data flow, as an alternative architecture idea t
 
 ```json
 {
-    action: "increment"/"decrement",
+    action: "increment/decrement",
     category: "category name",
     continent: "continent"
 }
@@ -50,7 +50,6 @@ Here is an example of real time data flow, as an alternative architecture idea t
 
 ### Advantages
 
-- Scalability
-  Easy to scale up vertically or horizontally.
+- Scalability: Easy to scale up any service vertically or horizontally.
 
-- Clean decoupling
+- Clean decoupling between services.
