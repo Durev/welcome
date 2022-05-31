@@ -24,9 +24,9 @@ Here is an example of real time data flow, as an alternative architecture idea t
 
 ```json
 {
-    action: "increment/decrement",
-    category: "category name",
-    continent: "continent"
+    "action": "increment/decrement",
+    "category": "category name",
+    "continent": "continent",
 }
 ```
 
